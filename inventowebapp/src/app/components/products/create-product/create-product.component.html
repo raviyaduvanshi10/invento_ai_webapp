@@ -1,0 +1,60 @@
+<mat-card>
+    <h3> Create New Product</h3>
+    <hr>
+    <div [hidden]="submitted" style="width:100%;">
+        <form #product="ngForm" (ngSubmit)="onSubmit()" class="table-responsive">
+            <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Product Id</mat-label>
+                    <input matInput type="text" id="locationId" placeholder="Location Id" required
+                        [(ngModel)]="product.productId" name="productId">
+                </mat-form-field>
+
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Product Name</mat-label>
+                    <input matInput type="text" id="locationId" placeholder="Location Name" required
+                        [(ngModel)]="product.productName" name="productName">
+                </mat-form-field>
+
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Category Id</mat-label>
+                    <input matInput type="text" id="categoryId" placeholder="Category Id" required
+                        [(ngModel)]="product.categoryId" name="categoryId">
+                </mat-form-field>
+
+
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Select Category</mat-label>
+                    <select matNativeControl [disabled]="disableSelect.value" id="categoryName" required
+                        [(ngModel)]="product.categoryName" name="categoryName">
+                        <option value="" selected></option>
+                        <option *ngFor="let ctype of categoryType">
+                            {{ctype}}
+                        </option>
+                    </select>
+                </mat-form-field>
+
+            </div>
+
+            <div fxLayout="row" fxLayout.md_lt="column" fxLayoutGap="20px" FxLayoutGap.md_lt="5px">
+                <div fxFlex="10">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="cancel()">Cancel</button>
+                </div>
+                <div fxFlex="10">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block"
+                        [disabled]="product.form.invalid">Submit</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+    <div [hidden]="!submitted">
+        <h4>Successfully submitted!</h4>
+    </div>
+
+</mat-card>

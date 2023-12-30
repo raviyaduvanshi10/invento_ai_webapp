@@ -1,0 +1,145 @@
+<mat-card style="margin-right: 1%;">
+    <form action="">
+        <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutGap.lt-md="1px">
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Select Report Type</mat-label>
+                <select matNativeControl [disabled]="disableSelect.value">
+                    <option value="" selected></option>
+                    <option *ngFor="let rtype of reportType" value="rtype">
+                        {{rtype}}
+                    </option>
+                </select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Select City</mat-label>
+                <select matNativeControl [disabled]="disableSelect.value">
+                    <option value="" selected></option>
+                    <option *ngFor="let ltype of businessLocation" value="ltype">
+                        {{ltype}}
+                    </option>
+                </select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Select Category</mat-label>
+                <select matNativeControl [disabled]="disableSelect.value">
+                    <option value="" selected></option>
+                    <option *ngFor="let ctype of categoryType" value="ctype">
+                        {{ctype}}
+                    </option>
+                </select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex appearance="outline">
+                <mat-label>Select Product</mat-label>
+                <select matNativeControl [disabled]="disableSelect.value">
+                    <option value="" selected></option>
+                    <option *ngFor="let ptype of productType" value="ptype">
+                        {{ptype}}
+                    </option>
+                </select>
+            </mat-form-field>
+            <div fxFlex="10">
+                <button mat-raised-button color="primary" routerLinkActive="active"> Get Report </button>
+            </div>
+            <!-- <button class="button" fxFlex type="submit"><b>Get Report</b></button> -->
+        </div>
+    </form>
+</mat-card>
+
+
+
+
+<!-- <div style="margin:0.5%; position:inherit;">
+    <form class="form-inline">
+        <label for="email">Filter:</label>
+        <input type="text" id="email" placeholder="Type to Filter..." [(ngModel)]="searchText" autocomplete="off"
+            name="email">
+        <label for="pwd">Show:</label>
+        <select name="" id="">
+            <option value="">5</option>
+        </select>
+
+        <div>
+            <button class="btn btn-success btn-block" (click)="openPDF()"><b>Download PDF</b></button>
+        </div>
+    </form>
+</div> -->
+
+
+<div class="table-responsive" id="htmlData">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <button class="tablebutton">
+                        <i class="material-icons-new outline-search"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button class="tablebutton">
+                        <i class="material-icons-new outline-location_city"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="tablebutton" (click)="openPDF()">
+                        <i class="material-icons-new outline-cloud_download"></i>
+                    </button>
+                </th>
+
+                <th scope="col">
+                    <button class="tablebutton">
+                        <i class="material-icons-new outline-fullscreen"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button class="tablebutton">
+                        <i class="material-icons-new outline-local_printshop"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="tablebutton" routerLink="/default/workallocation">
+                        <i class="material-icons-new outline-open_in_new"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="tablebutton" routerLink="/default/inventorystore">
+                        <i class="material-icons-new outline-add"></i>
+                    </button>
+                </th>
+            </tr>
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Location ID</th>
+                <th scope="col">Location Name</th>
+                <th scope="col">Product ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Category ID</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Start Stock</th>
+                <th scope="col">Available Stock</th>
+                <th scope="col">Moved Stock</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Total Sales(INR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data | filter:searchText ; let i = index">
+                <td scope="row">{{ item.sn }}</td>
+                <td>{{item.locationid}}</td>
+                <td>{{item.locationname}}</td>
+                <td> {{item.productid}} </td>
+                <td> {{item.productname}} </td>
+                <td> {{item.categoryid}} </td>
+                <td> {{item.categoryname}} </td>
+                <td> {{item.startstock}} </td>
+                <td> {{item.availablestock}} </td>
+                <td> {{item.movedstock}} </td>
+                <td> {{item.productprice}} </td>
+                <td> {{item.totalsales}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

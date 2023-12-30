@@ -1,0 +1,18 @@
+$background-moredark: #0c2531;
+.example-button-row button,
+.example-button-row a {
+  height: 38px;
+  width: 150px;
+  border: solid rgba(12, 37, 49, 0.6) 2px;
+  font-size: 15px;
+}
+
+.active {
+  background: #0c2531;
+  color: white;
+}
+
+.example-button-row button:hover {
+  background-color: #d1c4e9;
+  color: #0c2531;
+}

@@ -1,0 +1,160 @@
+<div class="div1">
+    <div class="example-button-row">
+        <button mat-raised-button color="white" [routerLink]="['./scan']" routerLinkActive="active"> Scan
+        </button>
+        <button mat-raised-button color="white" [routerLink]="['./analyze']" routerLinkActive="active"> Analyze
+        </button>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+
+
+
+<div style="margin:0.5%; position:inherit;">
+    <form>
+        <!-- <label for="email">Filter:</label>
+        <input type="text" id="email" placeholder="Type to Filter..." [(ngModel)]="searchText" autocomplete="off"
+            name="email">
+        <label for="pwd">Show:</label>
+        <select name="" id="">
+            <option value="">10</option>
+        </select>
+
+        <div>
+            <button (click)="openPDF()"><b>Download PDF</b></button>
+        </div> -->
+        <!-- <div class="actionBoard" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGapt.lt-md="0px">
+            <mat-form-field fxFlex="25" appearance="outline">
+                <mat-label>Filter</mat-label>
+                <input matInput type="text" placeholder="Type to Filter..." [(ngModel)]="searchText" name="filter">
+            </mat-form-field>
+            <div fxFlex="20">
+                <button type="button" class="btn btn-primary btn-lg btn-block" (click)="openPDF()">Download PDF</button>
+            </div>
+        </div> -->
+    </form>
+</div>
+
+<div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <button class="tablebutton">
+                        <i class="material-icons-new outline-search"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button class="tablebutton">
+                        <i class="material-icons-new outline-location_city"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="tablebutton" (click)="openPDF()">
+                        <i class="material-icons-new outline-cloud_download"></i>
+                    </button>
+                </th>
+
+                <th scope="col">
+                    <button class="tablebutton">
+                        <i class="material-icons-new outline-fullscreen"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button class="tablebutton">
+                        <i class="material-icons-new outline-local_printshop"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="tablebutton" routerLink="/default/workallocation">
+                        <i class="material-icons-new outline-open_in_new"></i>
+                    </button>
+                </th>
+                <th scope="col">
+                    <button type="button" class="tablebutton" routerLink="/default/inventorystore">
+                        <i class="material-icons-new outline-add"></i>
+                    </button>
+                </th>
+            </tr>
+            <!-- <tr>
+                <th scope="col">hyInv Doc</th>
+                <th scope="col">Item</th>
+                <th scope="col"> Doc. Year</th>
+                <th scope="col"> Procedure</th>
+                <th scope="col"> PI Status</th>
+                <th scope="col">Acty Area</th>
+                <th scope="col">Bin</th>
+                <th scope="col">Hgh-Lvl HU</th>
+                <th scope="col">Product</th>
+                <th scope="col">Prod.Desc.</th>
+                <th scope="col">Batch</th>
+                <th scope="col">SN</th>
+                <th scope="col"> SN Desc.</th>
+                <th scope="col">Counter</th>
+                <th scope="col"> Book Qty</th>
+                <th scope="col"> Cntd Qty</th>
+                <th scope="col"> Diff.Qty</th>
+                <th scope="col">BUn</th>
+                <th scope="col"> Diff.Value</th>
+                <th scope="col">Crcy</th>
+                <th scope="col"> Diff/Trgt</th>
+
+            </tr> -->
+        </thead>
+
+        <tbody id="htmlData">
+            <tr>
+                <th scope="col">Inv Doc</th>
+                <th scope="col">Packaging</th>
+                <th scope="col"> Doc. Year</th>
+                <th scope="col"> Procedure</th>
+                <th scope="col"> PI Status</th>
+                <th scope="col">Acty Area</th>
+                <th scope="col">Bin</th>
+                <th scope="col">Hgh-Lvl HU</th>
+                <th scope="col">Product</th>
+                <th scope="col">Prod.No.</th>
+                <th scope="col">Batch</th>
+                <th scope="col">SN</th>
+                <th scope="col"> SN Desc.</th>
+                <th scope="col">Counter</th>
+                <th scope="col"> Book Qty</th>
+                <th scope="col"> Cntd Qty</th>
+                <th scope="col"> Diff.Qty</th>
+                <th scope="col">BUn</th>
+                <th scope="col"> Diff.Value</th>
+                <th scope="col">Crcy</th>
+                <th scope="col"> Diff/Trgt</th>
+
+            </tr>
+            <tr *ngFor="let invento of inventory | filter:searchText; let i=index">
+                <td>{{invento.phyInvDoc}}</td>
+                <td>{{invento.item}}</td>
+                <td>{{invento.date}}</td>
+                <td>{{invento.procedure}}</td>
+                <td>{{invento.piStatus}}</td>
+                <td>{{invento.actyArea}}</td>
+                <td>{{invento.binNo}}</td>
+                <td>{{invento.hghLvlHU}}</td>
+                <td>{{invento.product}}</td>
+                <td>{{invento.prodDesc}}</td>
+                <td>{{invento.batch}}</td>
+                <td scope="row"> {{i+1}} </td>
+                <td>{{ invento.sndesc }}</td>
+                <td>{{ invento.counter }}</td>
+                <td> {{invento.bookQuantity}} </td>
+                <td> {{invento.cntdQty}} </td>
+                <td> {{invento.diffQty}} </td>
+                <td> {{invento.bun}} </td>
+                <td>{{ invento.diffValue }}</td>
+                <td>{{ invento.crcy }}</td>
+                <td>{{ invento.diffTrgt }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center; background: white;">
+        <mat-progress-spinner color="primary" mode="indeterminate">
+        </mat-progress-spinner>
+    </div>
+</div>

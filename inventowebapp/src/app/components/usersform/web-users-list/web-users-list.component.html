@@ -1,0 +1,102 @@
+<!-- <mat-card style="margin:0.5%; position:inherit;">
+  <form>
+    <div class="actionBoard" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="5px">
+      <label for="email">Filter:</label>
+      <input type="text" id="email" placeholder="Type to Filter..." [(ngModel)]="searchText" autocomplete="off"
+        name="email"> -->
+
+<!-- <mat-form-field fxFlex="25" appearance="outline">
+        <mat-label>Filter</mat-label>
+        <input matInput type="text" placeholder="Type to Filter..." [(ngModel)]="searchText" name="filter">
+      </mat-form-field> -->
+<!-- <label for="pwd">Show:</label>
+      <select name="" id="">
+        <option value="">10</option>
+      </select> -->
+<!-- <div fxFlex="20">
+        <button type="button" class="btn btn-primary btn-lg btn-block" routerLink='/default/addwebuser'
+          routerLinkActive="active">Create Web User</button>
+      </div>
+    </div>
+  </form>
+ </mat-card> -->
+
+<br> <br>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          <button class="tablebutton">
+            <i class="material-icons-new outline-search"></i>
+          </button>
+        </th>
+        <th scope="col">
+          <button class="tablebutton">
+            <i class="material-icons-new outline-local_printshop"></i>
+          </button>
+        </th>
+        <th scope="col">
+          <button class="tablebutton">
+            <i class="material-icons-new outline-cloud_download"></i>
+          </button>
+        </th>
+        <th scope="col">
+          <button type="button" class="tablebutton" routerLink='/default/addwebuser'>
+            <i class="material-icons-new outline-person_add"></i>
+          </button>
+        </th>
+      </tr>
+      <tr>
+        <th scope="col">S.No</th>
+        <th scope="col">Web User Name</th>
+        <th scope="col"> Roles </th>
+        <!--<th scope="col"> Location </th>
+        <th scope="col">Web User Role</th> -->
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let webUser of webUsers | filter:searchText;let i=index">
+        <td> {{i+1}} </td>
+        <td> {{webUser.userName}} </td>
+        <td>
+          <div *ngFor="let role of webUser.roles | keyvalue" class="roles">
+            <ul *ngIf="role.value" is true>
+              <li>{{role.key | uppercase}}</li>
+            </ul>
+          </div>
+        </td>
+        <!--  <td *ngIf="webUser.roles">
+          <ul *ngFor="let w of webUser.roles">
+            <li> Advance Slotting: {{w.advanceslotting}} </li>
+          </ul>
+        </td> 
+        <td> {{webUser.location}} </td>-->
+
+        <td>
+          <!-- <div>
+            <button mat-mini-fab color="check" style="position: inherit;">
+              <mat-icon>check</mat-icon>
+            </button>
+            <button mat-mini-fab color="detail" (click)="webUserDetails(webUser.id)">
+              <mat-icon>remove_red_eye</mat-icon>
+            </button>
+            <button mat-mini-fab color="update" (click)="updateUser(webUser.id)">
+              <mat-icon> border_color</mat-icon>
+            </button>
+            <button mat-mini-fab color="delete" (click)="deleteUser(webUser.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div> -->
+          Active
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center; background: white;">
+    <mat-progress-spinner color="primary" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+</div>

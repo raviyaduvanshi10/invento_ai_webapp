@@ -1,0 +1,54 @@
+<mat-card style="margin: 2%;">
+    <h3>Register Invento App Users </h3>
+    <hr>
+
+    <div [hidden]="submitted" style="width:100%;" class="table-responsive">
+        <h4>Set User Details</h4>
+        <hr>
+        <!--     <p>{{ userAccessForm.value | json }} </p> -->
+        <form novalidate [formGroup]="userAccessForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+            <div style="font-size: 12px;" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="100px"
+                fxLayoutGap.lt-md="2px">
+
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input matInput formControlName="userName" placeholder="User Name" type="text" required>
+                </mat-form-field>
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" placeholder="Password " type="password" required>
+                </mat-form-field>
+            </div>
+
+            <h4>Select Invento Access Type</h4>
+            <hr>
+
+
+            <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="120px" fxLayoutGap.lt-md="2px"
+                formGroupName="roles">
+                <p>
+                    <mat-checkbox formControlName="advanceslotting">Advance Slotting</mat-checkbox>
+                </p>
+                <p>
+                    <mat-checkbox formControlName="barcodescanner">Warehouse Task</mat-checkbox>
+                </p>
+                <p>
+                    <mat-checkbox formControlName="inventorycount">Inventory Operator</mat-checkbox>
+                </p>
+
+            </div>
+
+            <hr>
+            <div mat-dialog-actions align="end">
+                <button mat-button class="background-primary text-floral-white" cdkFocusInitial>Cancel</button>
+                <button type="submit" mat-button class="background-primary text-floral-white"
+                    cdkFocusInitial>Submit</button>
+            </div>
+        </form>
+
+
+    </div>
+
+
+
+</mat-card>

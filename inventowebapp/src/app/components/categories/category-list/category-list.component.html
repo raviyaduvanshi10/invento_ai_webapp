@@ -1,0 +1,89 @@
+<!-- <mat-card style="margin:0.5%; position:inherit;">
+  <form> -->
+<!-- <label for="email">Filter:</label>
+    <input type="text" id="email" placeholder="Type to Filter..." [(ngModel)]="searchText" autocomplete="off"
+      name="email">
+    <label for="pwd">Show:</label>
+    <select name="" id="">
+      <option value="">10</option>
+    </select>
+    <button style="background-color: rgba(238, 28, 37, 1); border-radius: 3%; height: 50px; width: 200px;" matButton
+      routerLink='/default/createcategory' routerLinkActive="active">Create New Category</button> -->
+
+<!-- <div class="actionBoard" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px" fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex="25" appearance="outline">
+        <mat-label>Filter</mat-label>
+        <input matInput type="text" id="filter" placeholder="Type to Filter..." [(ngModel)]="searchText"
+          autocomplete="on" name="filter">
+      </mat-form-field>
+      <div fxFlex="20">
+        <button type="button" class="btn btn-primary btn-lg btn-block" routerLink='/default/createcategory'
+          routerLinkActive="active">Create New Category</button>
+      </div>
+    </div>
+  </form>
+</mat-card> -->
+
+<br> <br>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          <button class="tablebutton">
+            <i class="material-icons-new outline-search"></i>
+          </button>
+        </th>
+        <th scope="col">
+          <button class="tablebutton">
+            <i class="material-icons-new outline-delete_sweep"></i>
+          </button>
+        </th>
+        <th scope="col">
+          <button class="tablebutton">
+            <i class="material-icons-new outline-local_printshop"></i>
+          </button>
+        </th>
+        <th scope="col">
+          <button type="button" class="tablebutton" routerLink='/default/createcategory'>
+            <i class="material-icons-new outline-add"></i>
+          </button>
+        </th>
+      </tr>
+      <tr>
+        <th scope="col">S.No</th>
+        <th scope="col">Category Id</th>
+        <th scope="col">Category Name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories | filter:searchText; let i=index">
+        <td scope="row"> {{i+1}} </td>
+        <td>{{category.categoryId}}</td>
+        <td> {{category.categoryName}} </td>
+        <td>
+          Active
+          <!-- <div style="width: 100%;">
+            <button mat-mini-fab color="check">
+              <mat-icon>check</mat-icon>
+            </button>
+            <button mat-mini-fab color="update" (click)="updateCategory(category.id)"
+              style="margin-left: 2%;margin-right: 2%;">
+              <mat-icon> border_color</mat-icon>
+            </button>
+            <button mat-mini-fab color="delete" (click)="deleteCategory(category.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div> -->
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="isLoading" style="display: flex; justify-content: center; align-items: center; background: white;">
+    <mat-progress-spinner color="primary" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+</div>

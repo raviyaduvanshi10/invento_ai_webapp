@@ -1,0 +1,48 @@
+
+
+.div1 {
+  margin: 1%;
+  position: inherit;
+}
+
+.actionBoard {
+  font-size: 12px;
+  justify-content: space-between;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.example-button-row button,
+.example-button-row a {
+  height: 38px;
+  width: 14%;
+  border: solid rgba(12, 37, 49, 0.6) 2px;
+  font-size: 16px;
+}
+
+.active {
+  background: #0c2531;
+  color: white;
+}
+
+.material-icons-new {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  // background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.tablebutton {
+  border-radius: 4px;
+}
+
+mat-progress-spinner {
+  position: absolute;
+  top: 50%;
+}
+
+circle {
+  stroke-width: 11%;
+}

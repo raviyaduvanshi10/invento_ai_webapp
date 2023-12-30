@@ -1,0 +1,17 @@
+.mat-dialog-actions {
+    
+    &[align='end'] {
+      justify-content: flex-end;
+    }
+  
+    &[align='center'] {
+      justify-content: center;
+    }
+  }
+  button {
+      margin-left: 2%;
+  }
+
+  .webuserform {
+    font-size: 12px;
+  }

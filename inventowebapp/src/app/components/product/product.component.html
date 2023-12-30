@@ -1,0 +1,35 @@
+<mat-card>
+  <div style="width: 50%;" *ngFor="let sdata of sourceData; let i = index">
+    <h4>@odata.context : {{sdata["@odata.context"]}}</h4>
+    <hr>
+    <h4>@odata.metadataEtag : {{sdata["@odata.metadataEtag"]}} </h4>
+  </div>
+  <hr>
+  <!-- <h4>First : Yes</h4>
+  <hr>
+  <h4>2nd : OK</h4>
+  <hr> -->
+  <div class="table-responsive">
+    <!-- <div *ngFor="let val of data | keyvalue">
+      {{val.value}}
+    </div> -->
+    <table class="table">
+      <thead>
+        <tr *ngFor="let data of sapData | slice:0:1">
+          <th>S.N</th>
+          <th *ngFor="let val of data | keyvalue">
+            {{val.key}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of sapData; let i=index">
+          <td> {{i+1}} </td>
+          <td *ngFor="let val of data | keyvalue">
+            {{val.value}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-card>

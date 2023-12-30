@@ -1,0 +1,9 @@
+$background-moredark: #0C2531;
+.active {
+    background: $background-moredark;
+    color: white;
+}
+.actionBoard{
+  font-size: 10px;
+  justify-content: space-between;
+}

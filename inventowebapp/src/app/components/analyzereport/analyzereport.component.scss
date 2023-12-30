@@ -1,0 +1,30 @@
+.div1{
+    margin: 1%;
+}
+
+// .example-button-row button,
+// .example-button-row a {
+//   // margin-left: 0.2px;
+//   height: 50px;
+//   width: 136.8px;
+//   border: solid rgba(12, 37, 49, 0.6) 1px;
+// }
+
+.example-button-row button:hover {
+  background-color: #D1C4E9;
+  color: #0C2531;
+  }
+
+
+$background-moredark: #0c2531;
+.example-button-row button,
+.example-button-row a {
+  height: 38px;
+  border: solid rgba(12, 37, 49, 0.6) 2px;
+  font-size: 15px;
+}
+
+.active {
+  background: #0c2531;
+  color: white;
+}
